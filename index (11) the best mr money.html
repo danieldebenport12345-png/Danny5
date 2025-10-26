@@ -1,0 +1,2174 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mr. Money – Student Budgeting</title>
+  <meta name="description" content="Mr. Money helps students master money—from first paycheck to graduation—with simple budgets, clear goals, and friendly tools you can use in minutes." />
+  <meta property="og:title" content="Mr. Money – Student Budgeting" />
+  <meta property="og:description" content="Free, public, student‑first budgeting that turns goals into habits." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a7d3b" />
+  <style>
+    :root{
+      --bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--edge:#1e293b;--ink:#e2e8f0;--mint:#15b981;--grass:#0ea765;--ring:#22d3ee;
+    }
+    :root[data-theme='light']{
+      --bg:#f6f9f7;--card:#ffffff;--muted:#64748b;--edge:#e2e8f0;--ink:#0f172a;--mint:#16a34a;--grass:#0ea765;--ring:#a7f3d0;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;color:var(--ink);background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(21,185,129,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 0%, rgba(34,211,238,.12), transparent 60%),
+      linear-gradient(180deg,#0a0f1c 0%, var(--bg) 100%);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"}
+    a{color:var(--mint);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,18,32,.6);border-bottom:1px solid #0b2233;z-index:20}
+    :root[data-theme='light'] header{background:rgba(255,255,255,.7);border-bottom:1px solid var(--edge)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:34px;height:34px;border-radius:12px;background:conic-gradient(from 210deg, #16a34a, #22d3ee, #16a34a);display:grid;place-items:center;box-shadow:0 8px 24px rgba(22,163,74,.35)}
+    .logo span{font-weight:900;color:#052e16}
+    .brand h1{font-size:18px;letter-spacing:.3px;margin:0}
+    .nav a{margin-left:18px;color:var(--ink)}
+    .theme{margin-left:12px;border:1px solid #1f2a40;padding:8px 12px;border-radius:12px;background:transparent;color:var(--ink);cursor:pointer}
+    :root[data-theme='light'] .theme{border-color:var(--edge)}
+
+    .hero{padding:64px 0 28px;border-bottom:1px solid rgba(255,255,255,.06)}
+    :root[data-theme='light'] .hero{border-bottom:1px solid var(--edge)}
+    .hero .grid{display:grid;gap:28px;grid-template-columns:1.2fr .8fr}
+    .kicker{color:var(--mint);font-weight:700;letter-spacing:.3px;text-transform:uppercase;font-size:12px}
+    h2{font-size:42px;line-height:1.1;margin:.25em 0 .35em}
+    .lead{font-size:18px;color:#cbd5e1}
+    :root[data-theme='light'] .lead{color:#334155}
+    .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid #19443a;background:linear-gradient(180deg,#0ea765,#0a7d3b);color:white;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid #1f2a40}
+    :root[data-theme='light'] .btn.secondary{border-color:var(--edge)}
+
+    section{padding:48px 0}
+    .section-title{font-size:28px;margin:0 0 16px}
+    .muted{color:var(--muted)}
+
+    .cards{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .card{background:rgba(15,23,42,.72);border:1px solid #1f2a40;border-radius:16px;padding:18px}
+    :root[data-theme='light'] .card{background:var(--card);border-color:var(--edge)}
+    .card h3{margin:.2em 0 .4em}
+    .card p{color:#cbd5e1}
+    :root[data-theme='light'] .card p{color:#334155}
+    .check{width:22px;height:22px;border-radius:7px;background:radial-gradient(circle at 30% 30%, #16a34a, #0ea765);display:inline-grid;place-items:center;color:#052e16;font-weight:900;margin-right:8px}
+
+    .why{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+    .why .item{background:rgba(15,23,42,.72);border:1px solid #1f2a40;border-radius:16px;padding:18px}
+    :root[data-theme='light'] .why .item{background:var(--card);border-color:var(--edge)}
+    .why h4{margin:.15em 0 .35em}
+
+    .note{font-size:13px;color:#93c5fd}
+    :root[data-theme='light'] .note{color:#2563eb}
+    .founder{margin-top:18px;font-size:14px;color:#9ae6b4}
+    :root[data-theme='light'] .founder{color:#065f46}
+
+    .footer{border-top:1px solid rgba(255,255,255,.06);padding:22px 0;color:#94a3b8;font-size:14px}
+    :root[data-theme='light'] .footer{border-top:1px solid var(--edge);color:#475569}
+
+    /* responsive */
+    @media (max-width: 900px){
+      .hero .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .why{grid-template-columns:1fr}
+      h2{font-size:34px}
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+  <meta property="og:image" content="assets/og-image.png" />
+  <style>
+      html { scroll-behavior: smooth; }
+      :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 8px; }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+      }
+    </style>
+
+  <style>
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+    .btn svg { margin-right: 6px; }
+  </style>
+
+
+  <style>
+    /* Card hover states */
+    .item, .card { transition: box-shadow .2s ease, transform .2s ease; }
+    .item:hover, .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.08); transform: translateY(-1px); }
+
+    /* Toasts */
+    #toastHost { position: fixed; right: 16px; bottom: 16px; display:flex; flex-direction:column; gap:8px; z-index: 9999; }
+    .toast { background: rgba(15,23,42,.96); color:#e2e8f0; padding:10px 14px; border-radius:12px; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+    .toast.success { color:#bbf7d0; }
+    .toast.error { color:#fecaca; }
+
+    /* Scroll to top */
+    #upBtn { position: fixed; right: 16px; bottom: 16px; width: 44px; height:44px; border-radius:999px; display:none; align-items:center; justify-content:center; background:#0f172a; color:#a7f3d0; box-shadow:0 8px 24px rgba(0,0,0,.3); z-index: 9998; }
+    #upBtn.show { display:flex; }
+    #upBtn svg { pointer-events:none }
+
+    /* Print view */
+    @media print {
+      header, nav, #upBtn, #toastHost, #share-export, #recurring-goals { display:none !important; }
+      body { background: #fff !important; }
+    }
+  </style>
+
+<style>
+
+  /* --- Added: Sticky action bar (mobile) & badges chip styles --- */
+  @media (max-width: 900px){
+    #quickActions {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 9997;
+      display: flex; gap: 8px; justify-content: center; padding: 10px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(15,23,42,.85));
+      backdrop-filter: blur(8px);
+    }
+    #quickActions .btn { padding: 10px 12px; border-radius: 999px; }
+    body { padding-bottom: 70px; } /* prevent content behind the bar */
+  }
+  #badgeChip { display:inline-flex; align-items:center; gap:6px; }
+  #badgeChip svg { vertical-align:-2px }
+  #tipsRotator { min-height: 20px }
+  .tip-chip { display:inline-block; padding:6px 10px; border:1px solid var(--edge); border-radius:999px; font-size:13px; color:var(--muted); }
+  /* Onboarding modal */
+  #tourOverlay { position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:10000;
+    background: rgba(0,0,0,.55); }
+  #tourCard { max-width:520px; width:90%; background:var(--card); border:1px solid var(--edge);
+    border-radius:16px; padding:18px; color:var(--ink); }
+  #tourCard h3 { margin:0 0 8px }
+  #tourSteps { color:var(--muted); margin: 8px 0 12px }
+
+</style>
+<style>
+
+/* --- Weekly Spending Enhancements --- */
+.ws-grid { display:grid; grid-template-columns: 1.2fr 1fr; gap:12px; align-items: start; }
+@media (max-width: 900px){ .ws-grid{ grid-template-columns: 1fr; } }
+.ws-list { display:grid; gap:8px; }
+.ws-item { display:flex; justify-content:space-between; align-items:center; padding:10px; border:1px solid var(--edge); border-radius:12px; background: var(--card); }
+.ws-item small { color: var(--muted); }
+.ws-undo { border:1px solid var(--edge); background:transparent; color:var(--ink); border-radius:8px; padding:6px 8px; cursor:pointer; }
+.ws-nums { display:grid; gap:4px; }
+.ws-inline { display:grid; grid-template-columns: 1fr 1fr auto; gap:8px; }
+
+</style>
+<style>
+
+/* --- Spending Charts --- */
+.ws-charts { display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px }
+@media (max-width: 900px){ .ws-charts{ grid-template-columns: 1fr; } }
+.canvas-card { background: var(--card); border:1px solid var(--edge); border-radius:12px; padding:12px }
+.canvas-card h4 { margin:0 0 8px }
+.ws-table { width:100%; border-collapse: collapse; font-size: 14px }
+.ws-table th, .ws-table td { padding:6px 8px; border-bottom:1px solid var(--edge); text-align:right }
+.ws-table th:first-child, .ws-table td:first-child { text-align:left }
+.ws-legend { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; font-size:12px; color: var(--muted) }
+.ws-legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px }
+
+</style>
+<style>
+
+/* --- Daily Streaks --- */
+.daily-streaks{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:8px}
+.ds-cell{border:1px solid var(--edge);background:var(--card);border-radius:12px;padding:10px;text-align:center}
+.ds-day{font-size:12px;color:var(--muted);margin-bottom:4px}
+.ds-icons{display:flex;justify-content:center;gap:8px;font-size:18px}
+.ds-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;font-size:12px;color:var(--muted)}
+@media (max-width:900px){.daily-streaks{grid-template-columns:repeat(7, minmax(0,1fr));gap:6px}.ds-icons{gap:6px}}
+.ds-fade{opacity:.35}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#top" style="position:absolute;left:-999px;top:-999px;background:#0f172a;color:#a7f3d0;padding:8px 12px;border-radius:10px">Skip to content</a>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo"><span>$</span></div>
+        <h1>Mr. Money</h1>
+      </div>
+      <nav>
+        <a href="#mission">Mission</a>
+        <a href="#why">Why</a>
+        <a href="#goals">Goals</a>
+        <a href="app_full.html">Budget</a>
+        <button class="theme" id="themeToggle" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-2px"><path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Theme</button>
+        <button class="theme" id="installBtn" aria-label="Install app" style="display:none"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-2px"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4V7h3l-5-5z"/></svg> Install</button>
+      </nav>
+    </div>
+  </header>
+<div id="toastHost" aria-live="polite" aria-atomic="true"></div>
+<button id="upBtn" aria-label="Scroll to top"><svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8l6 6H6z"/></svg></button>
+
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="grid">
+        <div>
+          <div class="kicker">Public • free • student‑first</div>
+          <h2>Budgeting that actually fits a student life.</h2>
+          <p class="lead">Mr. Money helps you set goals, track spending, and build habits—without ads, paywalls, or complicated setup. Open the site, add your numbers, and see your plan instantly.</p>
+          <div class="cta">
+            <a class="btn" href="app_full.html">Open the Budget</a>
+            <a class="btn secondary" href="#mission">Read the Mission</a>
+          </div>
+          <p class="founder">Founded by <strong>Daniel Debenport</strong> — built for students, by students.</p>
+        </div>
+        <div>
+          <div class="card" style="height:100%">
+            <h3 style="margin-top:0">What you get</h3>
+            <ul class="muted" style="line-height:1.8;margin:0;padding-left:18px">
+              <li>Quick setup: 50/30/20 template or custom categories</li>
+              <li>Goal tracker with progress bars and due dates</li>
+              <li>Export/Import your data</li>
+              <li>Works offline, saves to your device (no login)</li>
+            </ul>
+            <p class="note" style="margin-top:14px">Your data stays in your browser. Clear anytime in Settings.</p>
+          </div>
+        </div>
+      </div>
+    
+  <!-- Added: Progress Snapshot + Tips Rotator + Sticky Quick Actions + Onboarding -->
+  <section id="snapshot" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+    <div class="item">
+      <h3 style="margin:0">Progress Snapshot</h3>
+      <p class="muted" id="snapLine" style="margin:.25rem 0 0">Loading your snapshot…</p>
+      <div class="cards" style="grid-template-columns:repeat(3,1fr); gap:12px; margin-top:10px">
+        <div class="card"><h3 style="margin:0 0 6px">% Saved</h3><p class="muted" id="snapPctSaved" style="margin:0">—</p></div>
+        <div class="card"><h3 style="margin:0 0 6px">This Week</h3><p class="muted" id="snapWeek" style="margin:0">—</p></div>
+        <div class="card"><h3 style="margin:0 0 6px">Active Goals</h3><p class="muted" id="snapGoals" style="margin:0">—</p></div>
+      </div>
+    </div>
+  
+<div class="ws-charts">
+  <div class="canvas-card">
+    <h4>Category pie (this week)</h4>
+    <canvas id="wsPie" width="300" height="220" aria-label="Category pie chart"></canvas>
+    <div class="ws-legend" id="wsPieLegend"></div>
+  </div>
+  <div class="canvas-card">
+    <h4>Daily breakdown</h4>
+    <canvas id="wsSpark" width="600" height="120" aria-label="Daily sparkline"></canvas>
+    <table class="ws-table" id="wsTable"></table>
+  </div>
+</div>
+
+</section>
+
+<section id="daily-streaks" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:12px">
+  <div class="item">
+    <h3 style="margin:0">Daily Streaks (this week)</h3>
+    <div class="daily-streaks" id="dsGrid"></div>
+    <div class="ds-legend">
+      <span>⭐ Logged an entry</span>
+      <span>✅ On target pace</span>
+      <span>💎 Zero-spend day</span>
+    </div>
+  </div>
+</section>
+
+
+  <section id="tips" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:12px">
+    <div class="item">
+      <h3 style="margin:0">Smart Tips</h3>
+      <div style="margin-top:8px"><span id="tipsRotator" class="tip-chip">Loading tip…</span></div>
+    </div>
+  </section>
+
+  <div id="quickActions" class="reveal" style="display:none">
+    <a class="btn" href="#goals">+ Goal</a>
+    <a class="btn secondary" href="#weekly-spending">+ Spend</a>
+  </div>
+
+  <div id="tourOverlay" aria-hidden="true">
+    <div id="tourCard" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+      <h3 id="tourTitle">Welcome to Mr. Money 👋</h3>
+      <div id="tourSteps">Let’s get you set up in 3 quick steps.</div>
+      <ol class="muted" style="margin:0 0 12px 20px; line-height:1.6">
+        <li><a href="#goals">Add a savings goal</a> (name, target, due date).</li>
+        <li><a href="#weekly-spending">Set your weekly limit</a> and add your first spend.</li>
+        <li>Optionally <a href="#recurring-goals">add recurring goals</a> (rent, phone, textbooks).</li>
+      </ol>
+      <div style="display:flex; gap:8px; justify-content:flex-end">
+        <button class="theme" id="tourSkip">Skip</button>
+        <button class="theme" id="tourDone">Got it</button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    <!-- MISSION -->
+    <section id="mission">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="muted">Empower every student to feel confident with money by turning small, repeatable choices into long‑term habits. We design tools that are:</p>
+      <div class="cards" style="margin-top:12px">
+        <div class="card">
+          <h3><span class="check">✓</span>Public & Free</h3>
+          <p>No logins, no paywalls, no ads. You can share this site with anybody and it just works in the browser—on laptop or phone.</p>
+        </div>
+        <div class="card">
+          <h3><span class="check">✓</span>Student‑Smart</h3>
+          <p>Built around real student costs: housing, meal plans, textbooks, fees, rideshares, subscriptions, and part‑time income that may change month to month.</p>
+        </div>
+        <div class="card">
+          <h3><span class="check">✓</span>Action‑First</h3>
+          <p>Instead of long forms, you get a simple starter budget, goal sliders, and one‑click rules like “Save 10% for Future‑You” so progress starts today.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why">
+      <h2 class="section-title">Why Mr. Money?</h2>
+      <p class="muted">Because student money is different. Income is uneven, expenses surprise you, and time is limited. Mr. Money smooths the chaos with simple defaults that adapt to you.</p>
+      <div class="why" style="margin-top:10px">
+        <div class="item"><h4>Uneven income → Flexible plans</h4><p>Adjust fast when paychecks move up/down.</p></div>
+        <div class="item"><h4>Hidden costs → Smart checklists</h4><p>Catch lab fees, textbooks, parking, laundry.</p></div>
+        <div class="item"><h4>Too many subs → Clean‑up</h4><p>See the monthly drain and cancel what you don’t use.</p></div>
+        <div class="item"><h4>Big goals → Bite‑sized steps</h4><p>Weekly targets + visible progress bars.</p></div>
+      </div>
+    </section>
+
+    <!-- SAVINGS GOALS (Pro) -->
+    <section id="goals">
+      <h2 class="section-title">Savings Goals</h2>
+      <p class="muted">Add a goal with a starting balance, monthly plan, and due date. Log deposits (with history), see recommended monthly to hit the date, and export/import your data.</p>
+
+      <div class="card" style="margin:14px 0;max-width:1100px">
+        <div style="display:grid;grid-template-columns:2fr repeat(4,1fr) 1fr 1fr;gap:10px;align-items:end">
+          <label style="display:grid;gap:6px"><span>Goal name</span><input id="gName" placeholder="Emergency fund" style="padding:12px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" /></label>
+          <label style="display:grid;gap:6px"><span>Target ($)</span><input id="gTarget" type="number" min="1" placeholder="1000" style="padding:12px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" /></label>
+          <label style="display:grid;gap:6px"><span>Starting saved ($)</span><input id="gSaved" type="number" min="0" placeholder="0" style="padding:12px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" /></label>
+          <label style="display:grid;gap:6px"><span>Monthly plan ($/mo)</span><input id="gPlan" type="number" min="0" placeholder="100" style="padding:12px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" /></label>
+          <label style="display:grid;gap:6px"><span>Due date</span><input id="gDue" type="date" style="padding:12px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" /></label>
+          <button id="addGoal" class="btn">Add Goal</button>
+          <button id="resetGoals" class="btn secondary">Reset all</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:14px">
+          <label class="muted">Currency</label>
+          <select id="currency" style="padding:10px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)">
+            <option value="USD" selected>USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+          </select>
+          <button id="exportBtn" class="btn secondary">Export</button>
+          <label class="btn secondary" for="importFile" style="cursor:pointer">Import</label>
+          <input id="importFile" type="file" accept="application/json" style="display:none" />
+        </div>
+      </div>
+
+      <!-- Goals summary and list -->
+      <div id="goals-summary" class="why" style="grid-template-columns:1fr;gap:12px;margin:0 0 12px">
+        <div class="item">
+          <h4 style="margin:0">Summary</h4>
+          <p class="muted" id="goalsTotals" style="margin:.25rem 0 0">No goals yet.</p>
+        </div>
+        <p class="muted" id="smartWarn" style="margin:.25rem 0 0"></p>
+      </div>
+      <div id="goals-list" class="why" style="grid-template-columns:1fr 1fr;gap:16px"></div>
+<section id="recurring-goals" class="why reveal" style="grid-template-columns:1fr;gap:16px;margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Recurring Goals Manager</h3>
+    <p class="muted" style="margin:.25rem 0 0">
+      Set up goals that return every month (rent, phone bill, subscriptions). These live alongside your current goals without changing your layout.
+    </p>
+    <form id="recForm" class="why" style="grid-template-columns:2fr 1fr 1fr auto; gap:8px; align-items:center; margin-top:12px">
+      <input id="recName" class="theme" placeholder="Name (e.g., Rent)" aria-label="Recurring goal name" />
+      <input id="recTarget" class="theme" type="number" min="0" step="1" placeholder="Target" aria-label="Recurring goal target" />
+      <select id="recReset" class="theme" aria-label="Reset cycle">
+        <option value="monthly" selected>Monthly</option>
+        <option value="quarterly">Quarterly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+      <button class="theme" id="recAdd" type="submit">Add</button>
+    </form>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px">
+      <button class="theme" data-template='{"name":"Rent","target":900,"reset":"monthly"}'>+ Rent</button>
+      <button class="theme" data-template='{"name":"Phone","target":45,"reset":"monthly"}'>+ Phone</button>
+      <button class="theme" data-template='{"name":"Textbooks","target":60,"reset":"quarterly"}'>+ Textbooks</button>
+      <button class="theme" data-template='{"name":"Emergency Fund","target":1000,"reset":"yearly"}'>+ Emergency</button>
+    </div>
+    <div id="recList" class="why" style="grid-template-columns:1fr 1fr; gap:12px; margin-top:12px"></div>
+    <p class="muted" style="margin-top:6px">These reset on the first day of the cycle you choose. Hit “Start New Month” in your app to roll over manually if you prefer.</p>
+  </div>
+</section>
+
+<section id="share-export" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Share & Export</h3>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px">
+      <button class="theme" id="btnShot">Export Screenshot (PNG)</button>
+      <button class="theme" id="btnEmbed">Generate Embed Code</button>
+      <button class="theme" id="btnCaseStudy">Export Case Study (PDF)</button>
+    </div>
+    <textarea id="embedOut" class="theme" placeholder="Embed code will appear here…" style="margin-top:8px; height:80px"></textarea>
+    <p class="muted" style="margin-top:6px">Paste the embed code into a blog or site to showcase your goals widget.</p>
+  </div>
+</section>
+
+
+<!-- Replaced trends chart with a pie chart summarizing spending vs remaining limit -->
+<section id="spending-pie" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Overview: Spending, Recurring & Goals</h3>
+    <canvas id="pieChart" height="200" style="margin-top:8px"></canvas>
+  </div>
+</section>
+
+<section id="weekly-spending" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Weekly Spending</h3>
+    <p class="muted" style="margin:.25rem 0 0">Track how much you spend each week. Entries older than this week aren’t counted.</p>
+    <div id="weekBarContainer" style="background:var(--color-muted-bg); border-radius:8px; height:20px; margin-top:8px; position:relative;">
+      <div id="weekBarInner" style="background:var(--color-accent); height:100%; width:0%; border-radius:8px;"></div>
+    </div>
+    <p id="weekStatus" class="muted" style="margin-top:4px">You haven’t logged any spending this week.</p>
+    <form id="weekForm" style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap">
+      <select id="weekCat" class="theme" aria-label="Category">
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Housing">Housing</option>
+        <option value="Misc">Misc</option>
+      </select>
+      <input id="weekAmount" class="theme" type="number" min="0" step="0.01" placeholder="Amount" aria-label="Weekly spend amount">
+      <button type="submit" class="theme">Add</button>
+    </form>
+    <!-- Weekly limit settings -->
+    <div style="display:flex; gap:8px; margin-top:8px; align-items:center;">
+      <label for="weekLimit" class="muted" style="margin:0">Limit:</label>
+      <input id="weekLimit" class="theme" type="number" min="1" step="1" placeholder="Set limit">
+      <button id="weekSetLimit" class="theme" type="button">Set</button>
+    </div>
+    <!-- Display total spending across all recorded expenses -->
+    <p id="weekTotal" class="muted" style="margin-top:4px">Total spent: $0.00</p>
+    <p id="weekRemain" class="muted" style="margin-top:4px">Remaining: —</p>
+    <p id="weekPace" class="muted" style="margin-top:4px">Pace: —</p>
+    <div id="weekHist" class="why" style="grid-template-columns:1fr; gap:8px; margin-top:8px">
+      <p class="muted">No spending history yet.</p>
+    </div>
+    
+  </div>
+
+<!-- Weekly Spending Enhancements -->
+<section id="weekly-enhanced" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:12px">
+  <div class="item">
+    <h3 style="margin:0">Weekly Spending — Quick Add & Insights</h3>
+    <div class="ws-grid" style="margin-top:8px">
+      <div>
+        <div class="ws-inline">
+          <input id="wsAmount" class="theme" type="number" step="0.01" placeholder="Amount" aria-label="Amount">
+          <select id="wsCategory" class="theme" aria-label="Category">
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Entertainment</option>
+            <option>Housing</option>
+            <option>Subscriptions</option>
+            <option selected>Misc</option>
+          </select>
+          <button class="theme" id="wsAdd">Add</button>
+        </div>
+        <div class="ws-nums" style="margin-top:10px">
+          <p class="muted" id="wsRemain">Remaining: —</p>
+          <p class="muted" id="wsPace">Pace: —</p>
+          <p class="muted" id="wsForecast">Forecast: —</p>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 6px">This Week — History</h4>
+        <div id="wsHistory" class="ws-list"></div>
+<div style="margin-top:16px">
+  <h4 style="margin:0 0 6px">This Week — Category Breakdown</h4>
+  <canvas id="wsCatChart" height="180"></canvas>
+</div>
+<div style="margin-top:16px">
+  <h4 style="margin:0 0 6px">Daily Breakdown</h4>
+  <table id="wsDaily" style="width:100%; border-collapse:collapse; font-size:14px">
+    <thead><tr><th style="text-align:left">Day</th><th style="text-align:right">Spent</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+
+
+
+      <p class="note" style="margin-top:10px">All data is stored locally in your browser. Export your JSON if you switch devices.</p>
+    </section>
+  
+<section id="signup" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Stay in the loop</h3>
+    <p class="muted" style="margin:.25rem 0 0">Get monthly tips and updates. We keep it light, useful, and private.</p>
+    <form id="emailForm" style="display:grid; grid-template-columns:2fr 1fr auto; gap:8px; margin-top:10px">
+      <input id="emName" class="theme" placeholder="Name (optional)" aria-label="Name">
+      <input id="emEmail" class="theme" type="email" required placeholder="Email address" aria-label="Email">
+      <button class="theme" type="submit">Subscribe</button>
+    </form>
+    <label style="display:flex; align-items:center; gap:8px; margin-top:8px" class="muted">
+      <input id="emAgree" type="checkbox" aria-label="Agree to terms"> I agree to the <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.
+    </label>
+    <div style="display:flex; gap:8px; margin-top:8px">
+      <button class="theme" id="emExport">Export CSV</button>
+      <button class="theme" id="emClear">Clear list</button>
+    </div>
+    <p class="muted" style="margin-top:6px; font-size:13px">Note: Subscriptions are stored in your browser while you test. When you deploy, replace the handler with your email provider (e.g., Buttondown, Beehiiv, ConvertKit).</p>
+  </div>
+</section>
+
+
+<section id="faq" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">FAQ</h3>
+    <details style="margin-top:8px"><summary><strong>Do I need an account?</strong></summary>
+      <p class="muted" style="margin-top:6px">No. Mr. Money stores everything in your browser. You can export/import anytime.</p>
+    </details>
+    <details style="margin-top:8px"><summary><strong>Can I use this offline?</strong></summary>
+      <p class="muted" style="margin-top:6px">Yes. Install it to your home screen or desktop. It works offline with your latest data.</p>
+    </details>
+    <details style="margin-top:8px"><summary><strong>How do I share my progress?</strong></summary>
+      <p class="muted" style="margin-top:6px">Use Share & Export to copy a link or export an image/PDF of your goals.</p>
+    </details>
+    <details style="margin-top:8px"><summary><strong>How do I reset everything?</strong></summary>
+      <p class="muted" style="margin-top:6px">Go to Data Tools → Reset All Data. You can also back up first.</p>
+    </details>
+  </div>
+</section>
+
+
+<section id="testimonials" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0" data-i18n="testimonials_title">Why students love it</h3>
+    <div class="cards" style="grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:10px">
+      <div class="card"><p class="muted">“Set my first savings goal in 60 seconds. Seeing the bar fill up is addicting.” — <strong>Sophomore</strong></p></div>
+      <div class="card"><p class="muted">“The weekly limit bar saved me from overspending on food delivery.” — <strong>Junior</strong></p></div>
+      <div class="card"><p class="muted">“No login, works offline. It just respects my time.” — <strong>Senior</strong></p></div>
+      <div class="card"><p class="muted">“I finally understand where my money goes—Food vs. Subscriptions shows everything.” — <strong>First‑year</strong></p></div>
+      <div class="card"><p class="muted">“The case‑study PDF made it easy to show my parents my plan.” — <strong>Senior</strong></p></div>
+      <div class="card"><p class="muted">“Badges + streaks actually keep me under budget. Kinda like Duolingo for money.” — <strong>Junior</strong></p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="about" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">About, Mission & Privacy</h3>
+    <p class="muted" style="margin:.25rem 0 0">
+      <strong>Mission:</strong> Help students master money with a tool that is fast, private, and actually useful.
+      You can plan by category, track savings, and see progress at a glance—without giving your data to anyone.
+    </p>
+    <p class="muted" style="margin:.25rem 0 0">
+      <strong>Privacy:</strong> This site runs entirely in your browser. Data is stored locally (in your device’s storage).
+      No accounts, no tracking by default. You can clear your data anytime.
+    </p>
+    <p class="muted" style="margin:.25rem 0 0">
+      <strong>Why this matters:</strong> Budgeting should reduce stress, not add subscriptions and ads.
+      Mr. Money stays lightweight so students can focus on the numbers that matter—income, rent, savings, and the everyday choices in between.
+    </p>
+  </div>
+  <div class="item">
+    <h3 style="margin:0">Founder</h3>
+    <p class="muted" style="margin:0 0 6px"><span class="tip-chip">Nonprofit • Student‑run</span></p>
+    <p class="muted" style="margin:.25rem 0 0">
+      Built by <strong>Daniel Debenport</strong> (Bellevue High School ’26). Passionate about real estate and sports management,
+      Daniel created Mr. Money to make budgeting approachable for students, roommates, and first‑time renters.
+    </p>
+    <p class="muted" style="margin:.25rem 0 0">
+      <a href="#" id="founderLink" class="muted" aria-label="Founder link">Connect on LinkedIn</a> • <a href="#" class="muted">Portfolio</a>
+    </p>
+  </div>
+</section>
+
+<section id="weekly-streaks" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Weekly Streaks</h3>
+    <p class="muted" style="margin:.25rem 0 0">Track how many weeks in a row you’ve stayed under budget.</p>
+    <div style="font-size:20px; margin-top:8px">
+      <span id="streakStars">⭐</span>
+    </div>
+    <p class="muted" id="streakText" style="margin-top:6px">No streak yet.</p>
+  </div>
+</section>
+
+</main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span id="y"></span> Mr. Money. Public, ad‑free, student‑first.</div>
+      <div style="margin-top:8px">Founder: <strong>Daniel Debenport</strong> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="signup.html">Newsletter</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme
+    (function(){
+      const html = document.documentElement;
+      const key='mr_money_theme'; const saved = localStorage.getItem(key);
+      if(saved){ html.setAttribute('data-theme', saved); }
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
+        const next = html.getAttribute('data-theme')==='light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', next); localStorage.setItem(key,next);
+      });
+    })();
+
+    // Footer year
+    (function(){ const yEl = document.getElementById('y'); if(yEl) yEl.textContent = new Date().getFullYear(); })();
+
+    // === Savings Goals Pro ===
+    (function(){
+      const KEY='mr_money_goals_pro_v1';
+      const CKEY='mr_money_currency_v1';
+      const goalsList = document.getElementById('goals-list');
+      const fields = {
+        name: document.getElementById('gName'),
+        target: document.getElementById('gTarget'),
+        saved: document.getElementById('gSaved'),
+        plan: document.getElementById('gPlan'),
+        due: document.getElementById('gDue'),
+      };
+      const addBtn = document.getElementById('addGoal');
+      const resetBtn = document.getElementById('resetGoals');
+      const currencySel = document.getElementById('currency');
+      const exportBtn = document.getElementById('exportBtn');
+      const importFile = document.getElementById('importFile');
+
+      let currency = localStorage.getItem(CKEY) || 'USD';
+      currencySel.value = currency;
+
+      const load = ()=>{ try{return JSON.parse(localStorage.getItem(KEY))||[];}catch{return []} };
+      const save = (arr)=> localStorage.setItem(KEY, JSON.stringify(arr));
+      let goals = load();
+
+      function money(n){
+        try{ return Number(n||0).toLocaleString(undefined,{style:'currency',currency}); }
+        catch(e){ return '$'+(Number(n||0).toFixed(0)); }
+      }
+      function monthsBetween(a,b){
+        const d1=new Date(a.getFullYear(),a.getMonth(),1);
+        const d2=new Date(b.getFullYear(),b.getMonth(),1);
+        let m=(d2.getFullYear()-d1.getFullYear())*12 + (d2.getMonth()-d1.getMonth());
+        return Math.max(1,m||1);
+      }
+      function etaFromMonthly(rem, monthly){
+        if(monthly<=0) return '—';
+        const months = Math.ceil(rem/monthly);
+        const d = new Date(); d.setMonth(d.getMonth()+months);
+        return d.toLocaleDateString();
+      }
+
+      function render(){
+        if(goals.length===0){
+          goalsList.innerHTML = '<div class="item" style="grid-column:1/-1"><p class="muted">No goals yet. Add one above to get started.</p></div>';
+          return;
+        }
+        goalsList.innerHTML = goals.map(g=>{
+          const remaining = Math.max(0,(g.target||0)-(g.saved||0));
+          const pct = g.target>0? Math.min(100, Math.round((g.saved/g.target)*100)) : 0;
+          let recommend='—', eta='—';
+          if(g.due){ const months=monthsBetween(new Date(), new Date(g.due)); recommend = months>0? Math.ceil(remaining/months):remaining; }
+          if(g.plan>0){ eta = etaFromMonthly(remaining, g.plan); }
+
+          const history = (g.history||[]).slice().reverse().map(h=>`<li style="display:flex;justify-content:space-between"><span>${new Date(h.ts).toLocaleDateString()}</span><span>${money(h.amt)}</span></li>`).join('') || '<li class="muted">No deposits yet.</li>';
+
+          return `
+          <div class="item">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+              <h4 style="margin:0">${g.name}</h4>
+              <div style="display:flex;gap:8px">
+                <button data-id="${g.id}" data-act="remove" class="btn secondary" style="padding:8px 10px;border-radius:10px">Remove</button>
+              </div>
+            </div>
+            <p class="muted" style="margin:.25rem 0 .5rem">Target ${money(g.target)} • Saved ${money(g.saved)} • Remaining ${money(remaining)} ${g.due?`• Due ${new Date(g.due).toLocaleDateString()}`:''}</p>
+
+            <div style="height:12px;border-radius:8px;background:#0b2233;border:1px solid #1f2a40;overflow:hidden;margin-bottom:8px">
+              <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#16a34a,#0ea765)"></div>
+            </div>
+            <p class="note" style="margin:0 0 10px">${pct}% complete</p>
+
+            <div class="cards" style="grid-template-columns:1fr 1fr 1fr;gap:12px;margin:10px 0">
+              <div class="card"><h3 style="margin:0 0 6px">Plan</h3><p class="muted" style="margin:0">Monthly plan: <strong>${money(g.plan||0)}</strong></p><p class="muted" style="margin:6px 0 0">ETA at this pace: <strong>${eta}</strong></p></div>
+              <div class="card"><h3 style="margin:0 0 6px">Due-Date Target</h3><p class="muted" style="margin:0">Recommended monthly: <strong>${recommend==='—'?'—':money(recommend)}</strong></p></div>
+              <div class="card"><h3 style="margin:0 0 6px">Quick deposit</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn secondary" data-id="${g.id}" data-amt="10" data-act="quick">+$10</button><button class="btn secondary" data-id="${g.id}" data-amt="50" data-act="quick">+$50</button><button class="btn secondary" data-id="${g.id}" data-amt="100" data-act="quick">+$100</button></div></div>
+            </div>
+
+            <form data-id="${g.id}" data-act="deposit" style="display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:6px">
+              <input name="amount" type="number" min="1" step="1" placeholder="Deposit amount ($)" style="padding:10px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)" />
+              <button class="btn" type="submit">Deposit</button>
+            </form>
+
+            <details style="margin-top:10px">
+              <summary class="muted">Deposit history</summary>
+              <ul style="list-style:none;padding:10px 0 0;margin:0;display:grid;gap:6px">${history}</ul>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <button class="btn secondary" data-id="${g.id}" data-act="clearHistory">Clear history</button>
+              </div>
+            </details>
+
+            <div style="margin-top:10px">
+              <label class="muted" style="display:block;margin:6px 0 4px">Notes</label>
+              <textarea data-id="${g.id}" data-act="notes" rows="2" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--edge);background:var(--card);color:var(--ink)">${g.notes||''}</textarea>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      function addGoal(){
+        const name=fields.name.value.trim();
+        const target=Number(fields.target.value||0);
+        if(!name || !(target>0)) return;
+        const g={
+          id: Date.now().toString(36),
+          name, target,
+          saved: Number(fields.saved.value||0),
+          plan: Number(fields.plan.value||0),
+          due: fields.due.value||'',
+          notes:'',
+          history: []
+        };
+        goals.push(g); save(goals); render();
+        Object.values(fields).forEach(el=>el.value='');
+      }
+      function removeGoal(id){ goals = goals.filter(g=>g.id!==id); save(goals); render(); }
+      function deposit(id, amt){
+        const g = goals.find(x=>x.id===id); if(!g) return;
+        const a = Math.max(0, Number(amt)||0);
+        g.saved = Math.max(0, (g.saved||0) + a);
+        g.history = g.history || [];
+        g.history.push({ts: Date.now(), amt: a});
+        save(goals); render();
+      }
+      function clearHistory(id){
+        const g = goals.find(x=>x.id===id); if(!g) return;
+        g.history=[]; save(goals); render();
+      }
+      function setNotes(id, text){ const g=goals.find(x=>x.id===id); if(!g) return; g.notes=text; save(goals); }
+
+      addBtn.addEventListener('click', addGoal);
+      resetBtn.addEventListener('click', ()=>{ if(confirm('Reset all goals?')){ goals=[]; save(goals); render(); } });
+
+      goalsList.addEventListener('click', (e)=>{
+        const btn = e.target.closest('button[data-act]'); if(!btn) return;
+        const id=btn.getAttribute('data-id'); const act=btn.getAttribute('data-act');
+        if(act==='remove') removeGoal(id);
+        if(act==='quick') deposit(id, btn.getAttribute('data-amt'));
+        if(act==='clearHistory') clearHistory(id);
+      });
+      goalsList.addEventListener('submit', (e)=>{
+        const f = e.target.closest('form[data-act="deposit"]'); if(!f) return;
+        e.preventDefault();
+        const id=f.getAttribute('data-id'); const amt=new FormData(f).get('amount');
+        deposit(id, amt); f.reset();
+      });
+      goalsList.addEventListener('input', (e)=>{
+        const ta = e.target.closest('textarea[data-act="notes"]'); if(!ta) return;
+        setNotes(ta.getAttribute('data-id'), ta.value);
+      });
+
+      currencySel.addEventListener('change', ()=>{
+        currency = currencySel.value; localStorage.setItem(CKEY, currency); render();
+      });
+
+      exportBtn.addEventListener('click', ()=>{
+        const blob = new Blob([JSON.stringify({currency, goals}, null, 2)], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'mr_money_data.json'; a.click();
+        URL.revokeObjectURL(url);
+      });
+      importFile.addEventListener('change', (e)=>{
+        const file = e.target.files[0]; if(!file) return;
+        const reader = new FileReader();
+        reader.onload = ()=>{
+          try{
+            const data = JSON.parse(reader.result);
+            if(data.currency) { currency = data.currency; currencySel.value = currency; localStorage.setItem(CKEY, currency); }
+            if(Array.isArray(data.goals)){ goals = data.goals; save(goals); render(); }
+          }catch(err){ alert('Invalid file.'); }
+        };
+        reader.readAsText(file);
+      });
+
+      // initial render
+      render();
+    })();
+  </script>
+
+  <script>
+  (function(){
+    // PWA install flow
+    let deferredPrompt = null;
+    const btn = document.getElementById('installBtn');
+    window.addEventListener('beforeinstallprompt', (e)=>{
+      e.preventDefault(); deferredPrompt = e; if(btn) btn.style.display='inline-block';
+    });
+    if(btn){
+      btn.addEventListener('click', async ()=>{
+        if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null; btn.style.display='none'; }
+      });
+    }
+    // Service worker
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', ()=> navigator.serviceWorker.register('service-worker.js'));
+    }
+  })();
+  </script>
+
+  <!-- Weekly spending tracker -->
+  <script>
+  (function(){
+    const KEY = 'mr_money_weekly_v1';
+    const form = document.getElementById('weekForm');
+    const amountInput = document.getElementById('weekAmount');
+    const barInner = document.getElementById('weekBarInner');
+    const statusEl = document.getElementById('weekStatus');
+    const totalEl = document.getElementById('weekTotal');
+
+    // Setup pie chart context and update helper. This renders a pie chart summarizing
+    // the amount spent versus the remaining weekly limit. If Chart.js has not
+    // loaded yet, the update is deferred until the window load event. When a
+    // limit is updated or a new spend is added, updatePie() is called with
+    // the current weekly total.
+    const pieCtx = document.getElementById('pieChart')?.getContext('2d');
+    let pieChart = null;
+    let pendingPieSpent = null;
+    function updatePie(spent){
+      if(!pieCtx) return;
+      // If Chart.js isn’t loaded yet, defer the update until page load
+      if(typeof Chart === 'undefined'){
+        pendingPieSpent = spent;
+        return;
+      }
+      // compute totals for recurring and saving goals
+      let recurringTotal = 0;
+      try{
+        const recArr = JSON.parse(localStorage.getItem('mr_money_recurring_v1') || '[]');
+        for(const g of recArr){ recurringTotal += Number(g.target)||0; }
+      }catch(e){}
+      let savingTotal = 0;
+      try{
+        const goalsArr = JSON.parse(localStorage.getItem('mr_money_goals_pro_v1') || '[]');
+        for(const g of goalsArr){ savingTotal += Number(g.target)||0; }
+      }catch(e){}
+      const remaining = weeklyLimit > 0 ? Math.max(weeklyLimit - spent, 0) : 0;
+      const data = { labels: ['Spent','Remaining Limit','Recurring Goals','Savings Goals'], datasets: [ { data: [spent, remaining, recurringTotal, savingTotal] } ] };
+      if(pieChart){
+        pieChart.data = data;
+        pieChart.update();
+      } else {
+        pieChart = new Chart(pieCtx, { type:'pie', data: data, options: { plugins: { title: { display: true, text: 'Overview: Spending, Recurring & Goals' } } } });
+      }
+    }
+    window.addEventListener('load', ()=>{
+      if(pendingPieSpent !== null){ updatePie(pendingPieSpent); pendingPieSpent = null; }
+    });
+    if(!form || !barInner || !statusEl) return;
+    // Manage a user-defined weekly limit stored in localStorage
+    const LIMIT_KEY = 'mr_money_weekly_limit_v1';
+    function loadLimit(){
+      const v = Number(localStorage.getItem(LIMIT_KEY));
+      return v && v > 0 ? v : 200; // default to 200 if nothing set or invalid
+    }
+    let weeklyLimit = loadLimit();
+    // Setup limit input and button
+    const limitInput = document.getElementById('weekLimit');
+    const setLimitBtn = document.getElementById('weekSetLimit');
+    if(limitInput){ limitInput.value = weeklyLimit; }
+    if(setLimitBtn){
+      setLimitBtn.addEventListener('click', () => {
+        const v = parseFloat(limitInput.value);
+        if(v && v > 0){
+          weeklyLimit = v;
+          localStorage.setItem(LIMIT_KEY, v);
+          compute();
+        }
+      });
+    }
+    function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+    function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
+    function isThisWeek(d){
+      const now = new Date();
+      // Monday as first day of week. convert to start-of-week (local)
+      const first = new Date(now);
+      const day = (first.getDay() + 6) % 7; // Monday=0
+      first.setDate(now.getDate() - day);
+      first.setHours(0,0,0,0);
+      const end = new Date(first);
+      end.setDate(first.getDate() + 7);
+      return d >= first && d < end;
+    }
+    function formatMoney(n){
+      try{ const c = localStorage.getItem('mr_money_currency_v1') || 'USD'; return Number(n||0).toLocaleString(undefined,{style:'currency',currency:c}); }catch(e){ return '$'+(Number(n||0).toFixed(2)); }
+    }
+    function compute(){
+      const arr = load();
+      // Compute total spent this week
+      let total = 0;
+      const weekArr = arr.filter(item => {
+        const dt = new Date(item.date);
+        return isThisWeek(dt);
+      });
+      for(const item of weekArr){ total += Number(item.amount)||0; }
+      // Compute overall total
+      let grandTotal = 0;
+      for(const item of arr){ grandTotal += Number(item.amount)||0; }
+      if(totalEl){ totalEl.textContent = 'Total spent: '+formatMoney(grandTotal); }
+      const pct = weeklyLimit > 0 ? Math.min(100, (total/weeklyLimit) * 100) : 0;
+      barInner.style.width = pct + '%';
+      if(total > 0){
+        statusEl.textContent = 'Spent '+formatMoney(total)+' of '+formatMoney(weeklyLimit)+' this week ('+Math.round(pct)+'%)';
+      } else {
+        statusEl.textContent = 'No spending yet. Limit: '+formatMoney(weeklyLimit);
+      }
+      // Update the pie chart summary
+      updatePie(total);
+    }
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const amt = parseFloat(amountInput.value);
+      if(!amt || amt <= 0) return;
+      const arr = load();
+      arr.push({amount: amt, date: new Date().toISOString()});
+      save(arr);
+      amountInput.value = '';
+      compute();
+    });
+    compute();
+    // Recompute periodically (hourly) to ensure reset occurs automatically
+    setInterval(compute, 60 * 60 * 1000);
+  })();
+  </script>
+
+
+  <script>
+    // Add-on: totals summary + data validation (non-invasive)
+    (function(){
+      const sumEl = document.getElementById('goalsTotals');
+      if(!sumEl) return;
+      function money(n, currency){
+        try{ return Number(n||0).toLocaleString(undefined,{style:'currency',currency}); }
+        catch(e){ return '$'+(Number(n||0).toFixed(0)); }
+      }
+      function computeTotals(){
+        try{
+          const raw = localStorage.getItem('mr_money_goals_pro_v1');
+          const c = localStorage.getItem('mr_money_currency_v1') || 'USD';
+          const arr = raw ? JSON.parse(raw) : [];
+          if(!arr.length){ sumEl.textContent = 'No goals yet.'; return; }
+          let target=0, saved=0, remaining=0;
+          for(const g of arr){
+            const t = Math.max(0, Number(g.target)||0);
+            const s = Math.max(0, Number(g.saved)||0);
+            target += t; saved += s; remaining += Math.max(0, t - s);
+          }
+          const pct = target>0 ? Math.round(saved/target*100) : 0;
+          sumEl.innerHTML = 'Total targets: <strong>'+money(target,c)+'</strong> • Saved: <strong>'+money(saved,c)+'</strong> • Remaining: <strong>'+money(remaining,c)+'</strong> • Overall '+pct+'%';
+        }catch{ sumEl.textContent = '—'; }
+      }
+      computeTotals();
+      // Update on storage changes (e.g., deposits)
+      window.addEventListener('storage', (e)=>{ if(e.key==='mr_money_goals_pro_v1') computeTotals(); });
+      // Patch deposit buttons to recompute right away
+      document.addEventListener('click', (e)=>{
+        const b = e.target.closest('button[data-act]'); if(!b) return;
+        if(['quick','clearHistory','remove'].includes(b.getAttribute('data-act'))) setTimeout(computeTotals, 30);
+      });
+      document.addEventListener('submit', (e)=>{
+        const f = e.target.closest('form[data-act="deposit"]'); if(!f) return;
+        setTimeout(computeTotals, 30);
+      });
+    })();
+  </script>
+
+
+  <!-- libs -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script>
+  // Reveal on scroll
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(el=>el.classList.add('in')); return; }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, { threshold: .1 });
+    els.forEach(el=> io.observe(el));
+  })();
+
+  // Recurring Goals Manager (separate storage)
+  (function(){
+    const KEY = 'mr_money_recurring_v1';
+    const listEl = document.getElementById('recList');
+    const form = document.getElementById('recForm');
+    const nameEl = document.getElementById('recName');
+    const targetEl = document.getElementById('recTarget');
+    const resetEl = document.getElementById('recReset');
+    if(!listEl || !form) return;
+
+    function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+    function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); render(); }
+    function render(){
+      const arr = load();
+      listEl.innerHTML='';
+      if(!arr.length){
+        const p = document.createElement('p'); p.className='muted'; p.textContent='No recurring goals yet.'; listEl.appendChild(p); return;
+      }
+      arr.forEach((g,i)=>{
+        const card = document.createElement('div');
+        card.className='item';
+        card.innerHTML = '<h4 style="margin:0">'+g.name+'</h4>' +
+          '<p class="muted" style="margin:.25rem 0 0">Target: <strong>'+g.target+'</strong> • Resets: <strong>'+g.reset+'</strong></p>' +
+          '<div style="display:flex; gap:8px; margin-top:8px"><button class="theme" data-i="'+i+'" data-act="remove">Remove</button></div>';
+        listEl.appendChild(card);
+      });
+    }
+    render();
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = (nameEl.value||'').trim();
+      const target = Math.max(0, Number(targetEl.value||0));
+      const reset = resetEl.value || 'monthly';
+      if(!name || !target){ return; }
+      const arr = load(); arr.push({name, target, reset}); save(arr);
+      nameEl.value=''; targetEl.value='';
+    });
+    document.querySelectorAll('#recurring-goals [data-template]').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        try{ const t = JSON.parse(b.getAttribute('data-template')); const arr=load(); arr.push(t); save(arr);}catch{}
+      });
+    });
+    listEl.addEventListener('click', (e)=>{
+      const b = e.target.closest('button[data-act="remove"]'); if(!b) return;
+      const i = Number(b.getAttribute('data-i')); const arr = load(); arr.splice(i,1); save(arr);
+    });
+
+    // (Optional) hook-in point when user starts a new month: your app can read KEY and re-add goals.
+    window.__MrMoneyRecurringKey = KEY;
+  })();
+
+  // Screenshot export for goals area
+  (function(){
+    const btn = document.getElementById('btnShot');
+    if(!btn) return;
+    btn.addEventListener('click', async ()=>{
+      const area = document.getElementById('goals-summary')?.parentElement || document.body;
+      try{
+        const canvas = await html2canvas(area, {backgroundColor:null, scale:2});
+        const link = document.createElement('a');
+        link.download = 'mr_money_goals.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }catch(e){ alert('Unable to capture screenshot.'); }
+    });
+  })();
+
+  // Embed code
+  (function(){
+    const btn = document.getElementById('btnEmbed');
+    const out = document.getElementById('embedOut');
+    if(!btn || !out) return;
+    btn.addEventListener('click', ()=>{
+      const base = location.origin + location.pathname; // assumes hosted root contains index.html
+      const src = base.endsWith('index.html') ? base : base + 'index.html';
+      const code = '<iframe src="'+src+'" style="width:100%;height:600px;border:0;border-radius:12px;" loading="lazy" referrerpolicy="no-referrer"></iframe>';
+      out.value = code; out.select();
+    });
+  })();
+
+  // Achievements: confetti when a single goal passes 50% or 100% (listens to storage changes from your goals UI)
+  (function(){
+    const KEY = 'mr_money_goals_pro_v1';
+    let lastMap = {};
+    function mapFrom(arr){
+      const m = {}; (arr||[]).forEach(g=>{ m[g.id||g.name] = {saved:Number(g.saved||0), target:Number(g.target||0)}; }); return m;
+    }
+    function check(a, b){
+      for(const k in b){
+        const before = a[k]||{saved:0,target:0};
+        const after = b[k];
+        const pctBefore = before.target>0 ? before.saved/before.target*100 : 0;
+        const pctAfter = after.target>0 ? after.saved/after.target*100 : 0;
+        // Crossed thresholds?
+        if (pctBefore < 50 && pctAfter >= 50) { fireConfetti('Halfway there!'); }
+        if (pctBefore < 100 && pctAfter >= 100) { fireConfetti('Goal complete!'); }
+      }
+    }
+    function fireConfetti(msg){
+      try{
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      }catch{}
+      if (msg && document.hasFocus()) {
+        const el = document.createElement('div');
+        el.textContent = msg;
+        el.style.position = 'fixed'; el.style.left='50%'; el.style.top='16px';
+        el.style.transform='translateX(-50%)'; el.style.background='rgba(15,23,42,.9)';
+        el.style.color='#a7f3d0'; el.style.padding='8px 12px'; el.style.borderRadius='10px';
+        el.style.zIndex='9999'; el.style.boxShadow='0 4px 14px rgba(0,0,0,.3)';
+        document.body.appendChild(el); setTimeout(()=> el.remove(), 2000);
+      }
+    }
+    function loadArr(){
+      try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; }
+    }
+    function init(){
+      lastMap = mapFrom(loadArr());
+      window.addEventListener('storage', (e)=>{
+        if(e.key !== KEY) return;
+        const now = mapFrom(loadArr());
+        check(lastMap, now);
+        lastMap = now;
+      });
+    }
+    init();
+  })();
+  </script>
+
+
+<section id="data-tools" class="why reveal" style="grid-template-columns:1fr; gap:16px; margin-top:16px">
+  <div class="item">
+    <h3 style="margin:0">Data Tools</h3>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px">
+      <button class="theme" id="btnBackup">Backup (JSON)</button>
+      <button class="theme" id="btnRestore">Restore (JSON)</button>
+      <input type="file" id="restoreFile" accept="application/json" style="display:none">
+      <button class="theme" id="btnEditGoal">Edit Goal</button>
+      <button class="theme" id="btnPdf">Export PDF</button>
+      <button class="theme" id="btnDemo">Load Demo Data</button>
+      <button class="theme" id="btnResetAll">Reset All Data</button>
+    </div>
+  </div>
+</section>
+
+<div id="editModal" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.4); z-index:9999">
+  <div class="item" role="dialog" aria-modal="true" style="max-width:480px; width:90%">
+    <h3 style="margin:0">Edit Goal</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px">
+      <select id="egSelect" class="theme" aria-label="Select goal"></select>
+      <input id="egName" class="theme" placeholder="Name" aria-label="Goal name" />
+      <input id="egTarget" class="theme" type="number" min="0" step="1" placeholder="Target" aria-label="Target" />
+      <input id="egSaved" class="theme" type="number" min="0" step="1" placeholder="Saved" aria-label="Saved" />
+    </div>
+    <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end">
+      <button class="theme" id="egCancel">Cancel</button>
+      <button class="theme" id="egSave">Save</button>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script>
+  // Toasts
+  const toastHost = document.getElementById('toastHost');
+  function toast(msg, type='success', t=2000){
+    try{
+      const el=document.createElement('div');
+      el.className='toast '+type; el.textContent=msg;
+      toastHost.appendChild(el);
+      setTimeout(()=>{ el.style.opacity='0'; setTimeout(()=>el.remove(), 300); }, t);
+    }catch{ alert(msg); }
+  }
+
+  // Scroll to top
+  (function(){
+    const up=document.getElementById('upBtn'); if(!up) return;
+    window.addEventListener('scroll', ()=>{
+      if (window.scrollY>200) up.classList.add('show'); else up.classList.remove('show');
+    });
+    up.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  })();
+
+  // Smart warnings: read mr_money_state_v* if present
+  (function(){
+    const warnEl = document.getElementById('smartWarn'); if(!warnEl) return;
+    try{
+      const keys = Object.keys(localStorage).filter(k=>/^mr_money_state_v\d+/.test(k));
+      if(!keys.length){ warnEl.textContent = ''; return; }
+      const st = JSON.parse(localStorage.getItem(keys.sort().slice(-1)[0])||'{}');
+      const inc = Number(st.income||0), rent = Number(st.rent||0);
+      if(inc>0){
+        const pct = Math.round(rent/inc*100);
+        if(pct>=35){ warnEl.innerHTML = '⚠️ Rent is <strong>'+pct+'%</strong> of income. Aim for ≤ 30–35% if possible.'; }
+        else if(pct>0){ warnEl.textContent = '✅ Rent is '+pct+'% of income. Nice.'; }
+      }
+    }catch{}
+  })();
+
+  // Trends: month-by-month using lightweight history
+  (function(){
+    const ctx = document.getElementById('trendChart'); if(!ctx) return;
+    const KEY_HIST = 'mr_money_history_v1';
+    function load(){ try{ return JSON.parse(localStorage.getItem(KEY_HIST)||'[]'); }catch(e){ return []; } }
+    function save(arr){ localStorage.setItem(KEY_HIST, JSON.stringify(arr)); }
+    // Append a monthly snapshot if not present this month
+    const d=new Date(); const tag=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    let hist = load();
+    if (!hist.find(x=>x.month===tag)) {
+      // Try to derive total saved from goals
+      let saved=0, target=0;
+      try{
+        const arr=JSON.parse(localStorage.getItem('mr_money_goals_pro_v1')||'[]');
+        arr.forEach(g=>{ saved+=Number(g.saved||0); target+=Number(g.target||0); });
+      }catch{}
+      // Try to get income/rent
+      let inc=0, rent=0;
+      try{
+        const keys = Object.keys(localStorage).filter(k=>/^mr_money_state_v\d+/.test(k));
+        if(keys.length){ const st=JSON.parse(localStorage.getItem(keys.sort().slice(-1)[0])); inc=Number(st.income||0); rent=Number(st.rent||0); }
+      }catch{}
+      hist.push({month:tag, income:inc, rent:rent, saved:saved, target:target});
+      save(hist);
+    }
+    const labels = hist.map(x=>x.month);
+    const saved = hist.map(x=>x.saved||0);
+    const target = hist.map(x=>x.target||0);
+    new Chart(ctx, {
+      type:'line',
+      data:{ labels, datasets:[
+        { label:'Saved', data:saved },
+        { label:'Targets', data:target }
+      ]},
+      options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true } } }
+    });
+  })();
+
+  // Auto-carry recurring into main goals (manual trigger via a button near summary if present, or auto prompt)
+  (function(){
+    const recKey='mr_money_recurring_v1', mainKey='mr_money_goals_pro_v1';
+    function load(k){ try{ return JSON.parse(localStorage.getItem(k)||'[]'); }catch(e){ return []; } }
+    function save(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+    function carry(){
+      const rec=load(recKey); if(!rec.length){ toast('No recurring goals to carry', 'error'); return; }
+      const main=load(mainKey);
+      const names=new Set(main.map(g=>g.name));
+      let added=0;
+      rec.forEach(r=>{
+        if(!names.has(r.name)){
+          main.push({ id: crypto.randomUUID ? crypto.randomUUID() : r.name, name:r.name, target:Number(r.target||0), saved:0, history:[] });
+          added++;
+        }
+      });
+      save(mainKey, main);
+      if(added>0) toast('Carried over '+added+' recurring goal(s).'); else toast('All recurring goals already present.', 'error');
+      window.dispatchEvent(new StorageEvent('storage', {key: mainKey}));
+    }
+    // Add a small button next to summary if not present
+    const sum = document.getElementById('goalsTotals');
+    if(sum){
+      const b=document.createElement('button');
+      b.className='theme'; b.textContent='Start New Month';
+      b.style.marginLeft='8px';
+      b.addEventListener('click', carry);
+      sum.parentElement.appendChild(b);
+    }
+  })();
+
+  // Inline edit modal
+  (function(){
+    const KEY='mr_money_goals_pro_v1';
+    const modal=document.getElementById('editModal'); if(!modal) return;
+    const btn=document.getElementById('btnEditGoal');
+    const sel=document.getElementById('egSelect');
+    const nameEl=document.getElementById('egName');
+    const targetEl=document.getElementById('egTarget');
+    const savedEl=document.getElementById('egSaved');
+    function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+    function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
+    function open(){
+      const arr=load();
+      sel.innerHTML=''; arr.forEach((g,i)=>{
+        const o=document.createElement('option'); o.value=i; o.textContent=g.name; sel.appendChild(o);
+      });
+      if(!arr.length){ toast('No goals to edit','error'); return; }
+      fill(arr[0]);
+      modal.style.display='flex';
+    }
+    function close(){ modal.style.display='none'; }
+    function fill(g){
+      nameEl.value=g.name||''; targetEl.value=g.target||0; savedEl.value=g.saved||0;
+    }
+    btn.addEventListener('click', open);
+    document.getElementById('egCancel').addEventListener('click', close);
+    sel.addEventListener('change', ()=>{
+      const arr=load(); const g=arr[Number(sel.value)||0]; if(g) fill(g);
+    });
+    document.getElementById('egSave').addEventListener('click', ()=>{
+      const arr=load(); const i=Number(sel.value)||0; const g=arr[i]; if(!g) return;
+      g.name=(nameEl.value||g.name); g.target=Math.max(0, Number(targetEl.value||g.target)); g.saved=Math.max(0, Number(savedEl.value||g.saved));
+      save(arr); close(); toast('Goal updated');
+      window.dispatchEvent(new StorageEvent('storage', {key: KEY}));
+    });
+  })();
+
+  // Backup / Restore
+  (function(){
+    const btnB=document.getElementById('btnBackup'), btnR=document.getElementById('btnRestore'), file=document.getElementById('restoreFile');
+    if(!btnB || !btnR || !file) return;
+    btnB.addEventListener('click', ()=>{
+      const keys=['mr_money_goals_pro_v1','mr_money_currency_v1','mr_money_recurring_v1','mr_money_history_v1'];
+      // Include any mr_money_state_v*
+      Object.keys(localStorage).forEach(k=>{ if(/^mr_money_state_v\d+/.test(k)) keys.push(k); });
+      const data={}; keys.forEach(k=> data[k]=localStorage.getItem(k));
+      const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+      const url=URL.createObjectURL(blob); const a=document.createElement('a');
+      a.href=url; a.download='mr_money_backup.json'; a.click(); URL.revokeObjectURL(url);
+      toast('Backup saved');
+    });
+    btnR.addEventListener('click', ()=> file.click());
+    file.addEventListener('change', ()=>{
+      const f=file.files[0]; if(!f) return;
+      const reader=new FileReader();
+      reader.onload=()=>{
+        try{
+          const data=JSON.parse(reader.result);
+          Object.keys(data).forEach(k=> localStorage.setItem(k, data[k]));
+          toast('Restore complete');
+          window.location.reload();
+        }catch(e){ toast('Invalid backup file','error'); }
+      };
+      reader.readAsText(f);
+    });
+  })();
+
+  // PDF export (summary + goals area)
+  (function(){
+    const btn=document.getElementById('btnPdf'); if(!btn) return;
+    btn.addEventListener('click', async ()=>{
+      try{
+        const area = document.getElementById('goals-summary')?.parentElement || document.body;
+        const canvas = await html2canvas(area, {backgroundColor:'#ffffff', scale:2});
+        const img = canvas.toDataURL('image/jpeg', 0.95);
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({orientation:'p', unit:'pt', format:'a4'});
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const ratio = canvas.height/canvas.width;
+        const w = pageWidth-60, h = w*ratio;
+        pdf.addImage(img, 'JPEG', 30, 40, w, h);
+        pdf.save('mr_money_summary.pdf');
+        toast('PDF exported');
+      }catch(e){ toast('PDF failed','error'); }
+    });
+  })();
+
+  // Badges
+  (function(){
+    const KEY='mr_money_badges_v1';
+    const chip=document.getElementById('badgeChip');
+    const countEl=document.getElementById('badgeCount');
+    function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+    function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
+    function ensure(id, label){
+      const arr=load();
+      if(!arr.find(x=>x.id===id)){ arr.push({id, label, ts: Date.now()}); save(arr); update(); }
+    }
+    function update(){
+      const arr=load(); countEl.textContent = arr.length;
+      chip.title = 'Badges: '+arr.map(x=>x.label).join(', ');
+    }
+    // Hook into existing confetti events by watching goals changes & history totals
+    window.addEventListener('storage', (e)=>{
+      if(e.key==='mr_money_goals_pro_v1'){
+        try{
+          const arr=JSON.parse(localStorage.getItem('mr_money_goals_pro_v1')||'[]');
+          const any1k = arr.some(g=> Number(g.saved||0) >= 1000);
+          if(any1k) ensure('k1','Saved $1,000');
+          const anyComplete = arr.some(g=> Number(g.target||0)>0 && Number(g.saved||0)>=Number(g.target));
+          if(anyComplete) ensure('g1','First goal complete');
+        }catch{}
+      }
+      if(e.key==='mr_money_history_v1'){
+        ensure('hist1','Started tracking trends');
+      }
+    });
+    update();
+    chip && chip.addEventListener('click', ()=>{
+      const arr=load();
+      if(!arr.length){ toast('No badges yet'); return; }
+      alert('Badges:\n- '+arr.map(x=>x.label).join('\n- '));
+    });
+  })();
+  </script>
+
+<script>
+
+  // === Added Enhancements ===
+  (function(){
+    // 0) Auto-detect theme on first visit
+    try{
+      const key='mr_money_theme';
+      if(!localStorage.getItem(key)){
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const choice = prefersDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', choice);
+        localStorage.setItem(key, choice);
+      }
+    }catch{}
+  })();
+
+  (function(){
+    // 1) Badges chip in header
+    try{
+      const nav = document.querySelector('header .nav nav');
+      if(nav && !document.getElementById('badgeChip')){
+        const b = document.createElement('button');
+        b.className='theme'; b.id='badgeChip'; b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17.27L18.18 21l-1.63-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"/></svg> <span id="badgeCount">0</span>';
+        b.title='Achievements';
+        nav.appendChild(b);
+      }
+    }catch{}
+  })();
+
+  (function(){
+    // 2) Share link button
+    try{
+      const area = document.querySelector('#share-export .item div');
+      if(area && !document.getElementById('btnShare')){
+        const btn = document.createElement('button');
+        btn.className='theme'; btn.id='btnShare'; btn.textContent='Copy Share Link';
+        btn.addEventListener('click', async ()=>{
+          const url = location.href;
+          try{ await navigator.clipboard.writeText(url); toast('Link copied'); }catch{ toast('Copied: '+url); }
+        });
+        area.appendChild(btn);
+      }
+    }catch{}
+  })();
+
+  (function(){
+    // 3) Tips rotator
+    const tips = [
+      'Try 50/30/20: needs, wants, future-you.',
+      'Cancel 1 unused subscription to save $120+/yr.',
+      'Name your goals to make them stick.',
+      'Automate a $10 weekly deposit toward savings.',
+      'Use a weekly limit — and actually check it.',
+      'Round up purchases and throw the change at a goal.'
+    ];
+    let i = Math.floor(Math.random()*tips.length);
+    function showNext(){
+      const el = document.getElementById('tipsRotator'); if(!el) return;
+      el.textContent = tips[i%tips.length];
+      i++;
+    }
+    showNext();
+    setInterval(showNext, 6000);
+  })();
+
+  (function(){
+    // 4) Progress snapshot
+    function getCurrency(){
+      return localStorage.getItem('mr_money_currency_v1') || 'USD';
+    }
+    function money(n){
+      try{ return Number(n||0).toLocaleString(undefined,{style:'currency',currency:getCurrency()}); }catch{ return '$'+(Number(n||0).toFixed(2)); }
+    }
+    function load(key, fallback){
+      try{ return JSON.parse(localStorage.getItem(key)||fallback); }catch{ return JSON.parse(fallback); }
+    }
+    function loadGoals(){
+      return load('mr_money_goals_pro_v1','[]');
+    }
+    function pctSaved(){
+      const arr = loadGoals();
+      let target=0, saved=0;
+      arr.forEach(g=>{ target += Number(g.target)||0; saved += Number(g.saved)||0; });
+      return target>0 ? Math.round(saved/target*100) : 0;
+    }
+    function weekly(){
+      const arr = load('mr_money_weekly_v1','[]');
+      const limit = Number(localStorage.getItem('mr_money_weekly_limit_v1')||200);
+      const now = new Date();
+      const first = new Date(now); const day=(first.getDay()+6)%7;
+      first.setDate(now.getDate()-day); first.setHours(0,0,0,0);
+      const end = new Date(first); end.setDate(first.getDate()+7);
+      let total = 0;
+      arr.forEach(it=>{ const d=new Date(it.date); if(d>=first && d<end){ total += Number(it.amount)||0; } });
+      return { total, limit };
+    }
+    function update(){
+      const snapLine = document.getElementById('snapLine');
+      const pctEl = document.getElementById('snapPctSaved');
+      const weekEl = document.getElementById('snapWeek');
+      const goalsEl = document.getElementById('snapGoals');
+      if(!snapLine) return;
+      const goals = loadGoals();
+      const pct = pctSaved();
+      const w = weekly();
+      snapLine.textContent = 'Quick look at your numbers.';
+      pctEl.textContent = pct+'% of targets saved';
+      weekEl.textContent = money(w.total)+' / '+money(w.limit)+' this week';
+      goalsEl.textContent = (goals||[]).length + ' active goal' + (((goals||[]).length===1)?'':'s');
+    }
+    update();
+    window.addEventListener('storage', update);
+  })();
+
+  (function(){
+    // 5) Onboarding tour (first-time only)
+    const KEY='mr_money_tour_done_v1';
+    const shown = localStorage.getItem(KEY)==='1';
+    const overlay = document.getElementById('tourOverlay');
+    function open(){
+      if(overlay){ overlay.style.display='flex'; overlay.setAttribute('aria-hidden','false'); }
+    }
+    function close(){
+      if(overlay){ overlay.style.display='none'; overlay.setAttribute('aria-hidden','true'); }
+      try{ localStorage.setItem(KEY,'1'); }catch{}
+    }
+    if(!shown){
+      // Delay a bit to avoid clashing with PWA prompts
+      setTimeout(open, 600);
+    }
+    document.getElementById('tourSkip')?.addEventListener('click', close);
+    document.getElementById('tourDone')?.addEventListener('click', close);
+  })();
+
+  (function(){
+    // 6) Show quick action bar on small screens only
+    function onResize(){
+      const qa = document.getElementById('quickActions'); if(!qa) return;
+      if(window.innerWidth <= 900){ qa.style.display='flex'; } else { qa.style.display='none'; }
+    }
+    onResize();
+    window.addEventListener('resize', onResize);
+  })();
+
+</script>
+
+<script>
+(function(){
+  const KEY='mr_money_emails_v1';
+  const f = document.getElementById('emailForm');
+  const nameEl = document.getElementById('emName');
+  const emailEl = document.getElementById('emEmail');
+  const agreeEl = document.getElementById('emAgree');
+  const btnExport = document.getElementById('emExport');
+  const btnClear = document.getElementById('emClear');
+  if(!f) return;
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
+  f.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const email = (emailEl.value||'').trim();
+    const name = (nameEl.value||'').trim();
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ toast('Enter a valid email','error'); return; }
+    if(!agreeEl.checked){ toast('Please agree to Terms & Privacy','error'); return; }
+    const arr = load();
+    if(arr.find(x=>x.email.toLowerCase()===email.toLowerCase())){ toast('Already subscribed'); return; }
+    arr.push({name, email, ts: Date.now()});
+    save(arr);
+    nameEl.value=''; emailEl.value='';
+    toast('Subscribed!');
+  });
+  btnExport && btnExport.addEventListener('click', ()=>{
+    const arr = load();
+    const rows = [['name','email','timestamp']].concat(arr.map(x=>[x.name||'', x.email, new Date(x.ts).toISOString()]));
+    const csv = rows.map(r => r.map(c=>`"${String(c).replaceAll('"','""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url = URL.createObjectURL(blob); const a=document.createElement('a');
+    a.href = url; a.download = 'mr_money_subscribers.csv'; a.click(); URL.revokeObjectURL(url);
+  });
+  btnClear && btnClear.addEventListener('click', ()=>{
+    if(confirm('Clear the local subscriber list?')){ localStorage.removeItem(KEY); toast('List cleared'); }
+  });
+})();
+</script>
+
+<script>
+// Demo data + full reset
+(function(){
+  const btnD = document.getElementById('btnDemo');
+  const btnX = document.getElementById('btnResetAll');
+  if(btnD){
+    btnD.addEventListener('click', ()=>{
+      try{
+        const goals=[
+          {id:'g1',name:'Textbooks',target:300,saved:60,plan:50,due:'',history:[]},
+          {id:'g2',name:'Emergency Fund',target:1000,saved:250,plan:100,due:'',history:[]},
+          {id:'g3',name:'New Laptop',target:1200,saved:400,plan:150,due:'',history:[]}
+        ];
+        localStorage.setItem('mr_money_goals_pro_v1', JSON.stringify(goals));
+        localStorage.setItem('mr_money_currency_v1','USD');
+        localStorage.setItem('mr_money_recurring_v1', JSON.stringify([
+          {name:'Rent',target:900,reset:'monthly'},
+          {name:'Phone',target:45,reset:'monthly'}
+        ]));
+        const now = new Date();
+        const wk = [
+          {amount:12.5, date:new Date(now.getFullYear(),now.getMonth(),now.getDate()).toISOString()},
+          {amount:28.9, date:new Date(now.getFullYear(),now.getMonth(),now.getDate()-1).toISOString()},
+          {amount:8.0,  date:new Date(now.getFullYear(),now.getMonth(),now.getDate()-2).toISOString()}
+        ];
+        localStorage.setItem('mr_money_weekly_v1', JSON.stringify(wk));
+        localStorage.setItem('mr_money_weekly_limit_v1','120');
+        toast('Demo data loaded'); window.dispatchEvent(new StorageEvent('storage', {key: 'mr_money_goals_pro_v1'}));
+        setTimeout(()=>location.reload(), 350);
+      }catch(e){ toast('Demo failed','error'); }
+    });
+  }
+  if(btnX){
+    btnX.addEventListener('click', ()=>{
+      if(!confirm('Erase all Mr. Money local data? This cannot be undone.')) return;
+      try{
+        Object.keys(localStorage).forEach(k=>{ if(/^mr_money_/.test(k)) localStorage.removeItem(k); });
+        toast('All data cleared');
+        setTimeout(()=>location.reload(), 300);
+      }catch(e){ toast('Reset failed','error'); }
+    });
+  }
+})();
+</script>
+
+<div id="shortcutsModal" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.45); z-index:9999">
+  <div class="item" role="dialog" aria-modal="true" style="max-width:520px; width:90%">
+    <h3 style="margin:0">Keyboard Shortcuts</h3>
+    <ul class="muted" style="line-height:1.8">
+      <li><strong>G</strong> — Jump to Goals</li>
+      <li><strong>S</strong> — Jump to Weekly Spending</li>
+      <li><strong>T</strong> — Toggle Theme</li>
+      <li><strong>?</strong> — Show this help</li>
+    </ul>
+    <div style="display:flex; gap:8px; justify-content:flex-end"><button class="theme" id="scClose">Close</button></div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  // Smooth theme animation
+  try{
+    const html = document.documentElement;
+    html.style.transition = 'background-color .25s ease, color .25s ease';
+  }catch{}
+})();
+
+// Keyboard Shortcuts + Help modal
+(function(){
+  const modal = document.getElementById('shortcutsModal');
+  const closeBtn = document.getElementById('scClose');
+  function open(){ if(modal){ modal.style.display='flex'; } }
+  function close(){ if(modal){ modal.style.display='none'; } }
+  closeBtn && closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', (e)=>{
+    if (['INPUT','TEXTAREA'].includes((e.target.tagName||'').toUpperCase())) return;
+    if (e.key === 'g' || e.key === 'G'){ location.hash = '#goals'; }
+    if (e.key === 's' || e.key === 'S'){ location.hash = '#weekly-spending'; }
+    if (e.key === 't' || e.key === 'T'){ document.getElementById('themeToggle')?.click(); }
+    if (e.key === '?' ){ open(); }
+    if (e.key === 'Escape'){ close(); }
+  });
+})();
+
+// Install prompt nudge toast
+(function(){
+  let deferred = null;
+  const btn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', (e)=>{
+    deferred = e;
+    try{
+      const should = !localStorage.getItem('mr_money_install_nudged_v1');
+      if(should){ toast('Tip: Install Mr. Money for offline use. Tap "Install" in the header.'); localStorage.setItem('mr_money_install_nudged_v1','1'); }
+    }catch{}
+  });
+})();
+
+// Monthly auto-backup to file (runs once per month)
+(function(){
+  const KEY='mr_money_last_backup_v1';
+  try{
+    const now = new Date();
+    const tag = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+    const last = localStorage.getItem(KEY);
+    if(last !== tag){
+      const keys=['mr_money_goals_pro_v1','mr_money_currency_v1','mr_money_recurring_v1','mr_money_history_v1','mr_money_weekly_v1','mr_money_weekly_limit_v1'];
+      Object.keys(localStorage).forEach(k=>{ if(/^mr_money_state_v\d+/.test(k)) keys.push(k); });
+      const data={}; keys.forEach(k=> data[k]=localStorage.getItem(k));
+      const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a'); a.href=url; a.download='mr_money_backup_'+tag+'.json'; a.click(); URL.revokeObjectURL(url);
+      localStorage.setItem(KEY, tag);
+      toast('Auto-backup downloaded');
+    }
+  }catch{}
+})();
+
+// Case Study PDF (1-page summary with screenshots)
+(function(){
+  const btn=document.getElementById('btnCaseStudy'); if(!btn) return;
+  btn.addEventListener('click', async ()=>{
+    try{
+      const area = document.querySelector('.hero') || document.body;
+      const area2 = document.getElementById('goals-summary')?.parentElement || area;
+      const c1 = await html2canvas(area, {backgroundColor:'#ffffff', scale:2});
+      const c2 = await html2canvas(area2, {backgroundColor:'#ffffff', scale:2});
+      const img1 = c1.toDataURL('image/jpeg', 0.95);
+      const img2 = c2.toDataURL('image/jpeg', 0.95);
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({orientation:'p', unit:'pt', format:'a4'});
+      const W = pdf.internal.pageSize.getWidth();
+      // Title
+      pdf.setFont('helvetica','bold'); pdf.setFontSize(18);
+      pdf.text('Mr. Money — Case Study', 30, 40);
+      pdf.setFont('helvetica','normal'); pdf.setFontSize(11);
+      pdf.text('Mission: Help students master money with a tool that is fast, private, and actually useful. Built as a nonprofit public resource, it’s free for students and classrooms.</script>
+
+<script>
+(function(){
+  const KEY = 'mr_money_weekly_v1';
+  const form = document.getElementById('weekForm');
+  const amountInput = document.getElementById('weekAmount');
+  const catInput = document.getElementById('weekCat');
+  const barInner = document.getElementById('weekBarInner');
+  const statusEl = document.getElementById('weekStatus');
+  const totalEl = document.getElementById('weekTotal');
+  const remainEl = document.getElementById('weekRemain');
+  const paceEl = document.getElementById('weekPace');
+  const histEl = document.getElementById('weekHist');
+
+  const LIMIT_KEY = 'mr_money_weekly_limit_v1';
+  function loadLimit(){
+    const v = Number(localStorage.getItem(LIMIT_KEY));
+    return v && v > 0 ? v : 200;
+  }
+  let weeklyLimit = loadLimit();
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); }
+
+  function isThisWeek(d){
+    const now = new Date();
+    const first = new Date(now); const day=(first.getDay()+6)%7;
+    first.setDate(now.getDate()-day); first.setHours(0,0,0,0);
+    const end = new Date(first); end.setDate(first.getDate()+7);
+    return d >= first && d < end;
+  }
+  function formatMoney(n){
+    try{ const c = localStorage.getItem('mr_money_currency_v1') || 'USD'; return Number(n||0).toLocaleString(undefined,{style:'currency',currency:c}); }catch(e){ return '$'+(Number(n||0).toFixed(2)); }
+  }
+
+  function compute(){
+    const arr = load();
+    let totalWeek=0, totalAll=0;
+    const now=new Date();
+    const weekArr = arr.filter(item=> isThisWeek(new Date(item.date)));
+    for(const item of weekArr){ totalWeek += Number(item.amount)||0; }
+    for(const item of arr){ totalAll += Number(item.amount)||0; }
+    if(totalEl) totalEl.textContent = 'Total spent: '+formatMoney(totalAll);
+    const pct = weeklyLimit>0 ? Math.min(100, (totalWeek/weeklyLimit)*100) : 0;
+    barInner.style.width = pct+'%';
+    if(totalWeek>0){
+      statusEl.textContent = 'Spent '+formatMoney(totalWeek)+' of '+formatMoney(weeklyLimit)+' this week ('+Math.round(pct)+'%)';
+    } else {
+      statusEl.textContent = 'No spending yet. Limit: '+formatMoney(weeklyLimit);
+    }
+    // Remaining
+    if(remainEl){ remainEl.textContent = 'Remaining: '+formatMoney(Math.max(weeklyLimit-totalWeek,0)); }
+    // Pace
+    if(paceEl){
+      const first = new Date(now); const day=(first.getDay()+6)%7; first.setDate(now.getDate()-day); first.setHours(0,0,0,0);
+      const daysPassed = Math.max(1, Math.ceil((now-first)/(1000*60*60*24)));
+      const dailyAvg = totalWeek/daysPassed;
+      const targetDaily = weeklyLimit/7;
+      if(dailyAvg <= targetDaily){ paceEl.textContent = 'Pace: '+formatMoney(dailyAvg.toFixed(2))+'/day (on track)'; }
+      else { paceEl.textContent = 'Pace: '+formatMoney(dailyAvg.toFixed(2))+'/day (⚠️ above target)'; }
+    }
+    // History
+    if(histEl){
+      if(!weekArr.length){ histEl.innerHTML = '<p class="muted">No spending history yet.</p>'; }
+      else{
+        histEl.innerHTML = weekArr.slice().reverse().slice(0,5).map((it,i)=>{
+          const dt=new Date(it.date).toLocaleDateString();
+          return '<div class="item" style="display:flex;justify-content:space-between;align-items:center"><span>'+dt+' • '+(it.cat||'Misc')+'</span><span>'+formatMoney(it.amount)+'</span><button class="theme" data-i="'+(arr.indexOf(it))+'">Undo</button></div>';
+        }).join('');
+      }
+    }
+  }
+
+  form?.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const amt = parseFloat(amountInput.value);
+    if(!amt || amt <= 0) return;
+    const cat = catInput?.value || 'Misc';
+    const arr = load();
+    arr.push({amount: amt, date: new Date().toISOString(), cat});
+    save(arr);
+    amountInput.value='';
+    compute();
+  });
+
+  histEl?.addEventListener('click',(e)=>{
+    const btn=e.target.closest('button[data-i]'); if(!btn) return;
+    const i = Number(btn.getAttribute('data-i'));
+    const arr = load(); if(i>=0 && i<arr.length){ arr.splice(i,1); save(arr); compute(); }
+  });
+
+  compute();
+  setInterval(compute, 60*60*1000);
+})();
+</script>
+
+<script>
+(function(){
+  // Keys and helpers
+  const KEY='mr_money_weekly_v1';
+  const LIMIT_KEY='mr_money_weekly_limit_v1';
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function save(arr){ localStorage.setItem(KEY, JSON.stringify(arr)); window.dispatchEvent(new StorageEvent('storage', {key: KEY})); }
+  function uid(){ return 'w_'+Math.random().toString(36).slice(2,9); }
+  function money(n){
+    const cur = localStorage.getItem('mr_money_currency_v1') || 'USD';
+    try{ return Number(n||0).toLocaleString(undefined,{style:'currency',currency:cur}); }catch{return '$'+Number(n||0).toFixed(2);}
+  }
+  function getWeekBounds(){
+    const now = new Date();
+    const start = new Date(now);
+    const day = (start.getDay()+6)%7; // Mon=0
+    start.setDate(now.getDate()-day); start.setHours(0,0,0,0);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start, end};
+  }
+  function inThisWeek(d){
+    const {start, end} = getWeekBounds();
+    return d>=start && d<end;
+  }
+  function normalize(items){
+    return (items||[]).map(it=>{
+      const copy = Object.assign({}, it);
+      if(!copy.id) copy.id = uid();
+      if(!copy.category) copy.category = 'Misc';
+      return copy;
+    });
+  }
+  function weekEntries(){
+    const arr = normalize(load());
+    const list = arr.filter(it=>{
+      const d = new Date(it.date);
+      return inThisWeek(d);
+    });
+    return list.sort((a,b)=> new Date(b.date)-new Date(a.date));
+  }
+  function stats(){
+    const list = weekEntries();
+    const total = list.reduce((s,x)=> s + Number(x.amount||0), 0);
+    const limit = Number(localStorage.getItem(LIMIT_KEY) || 200);
+    const remain = Math.max(0, limit - total);
+    // pacing
+    const {start} = getWeekBounds();
+    const today = new Date(); const daysElapsed = Math.max(1, Math.floor((today - start)/(1000*60*60*24)) + 1);
+    const targetPerDay = limit/7;
+    const actualPerDay = total/daysElapsed;
+    let forecast = '—';
+    if(actualPerDay>0){
+      const daysLeftToLimit = (limit - total)/actualPerDay;
+      if(daysLeftToLimit <= 0){
+        forecast = 'Limit reached';
+      }else{
+        const hit = new Date(today); hit.setDate(hit.getDate() + Math.ceil(daysLeftToLimit));
+        forecast = 'On pace to hit limit by ' + hit.toLocaleDateString();
+      }
+    }else{
+      forecast = 'Great start — no spending yet this week.';
+    }
+    return {total, limit, remain, targetPerDay, actualPerDay, forecast, list};
+  }
+
+  // UI
+  const amountEl = document.getElementById('wsAmount');
+  const catEl = document.getElementById('wsCategory');
+  const addBtn = document.getElementById('wsAdd');
+  const hist = document.getElementById('wsHistory');
+  const remainEl = document.getElementById('wsRemain');
+  const paceEl = document.getElementById('wsPace');
+  const foreEl = document.getElementById('wsForecast');
+
+  function render(){
+    const s = stats();
+    if(remainEl) remainEl.textContent = 'Remaining: ' + money(s.remain) + ' of ' + money(s.limit);
+    if(paceEl){
+      const msg = 'Pace: ' + money(s.actualPerDay||0) + '/day vs ' + money(s.targetPerDay||0) + '/day target';
+      paceEl.textContent = msg;
+      if(s.actualPerDay <= s.targetPerDay) paceEl.classList.add('muted'); else paceEl.classList.remove('muted');
+    }
+    if(foreEl) foreEl.textContent = 'Forecast: ' + s.forecast;
+    if(hist){
+      hist.innerHTML='';
+      s.list.slice(0,10).forEach(it=>{
+        const row = document.createElement('div'); row.className='ws-item';
+        const left = document.createElement('div');
+        const right = document.createElement('div');
+        const d = new Date(it.date);
+        left.innerHTML = '<strong>'+ (it.category||'Misc') +'</strong> <small>• '+ d.toLocaleDateString() +'</small>';
+        right.innerHTML = '<strong>'+ money(it.amount) +'</strong>';
+        const x = document.createElement('button'); x.className='ws-undo'; x.textContent='Undo'; x.addEventListener('click', ()=>{
+          const arr = normalize(load());
+          const idx = arr.findIndex(x=> x.id===it.id);
+          if(idx>-1){ arr.splice(idx,1); save(arr); toast('Entry removed'); render(); }
+        });
+        row.appendChild(left); row.appendChild(right); row.appendChild(x);
+        hist.appendChild(row);
+      });
+      if(s.list.length===0){
+        const empty = document.createElement('div'); empty.className='ws-item'; empty.innerHTML='<small>No entries yet this week.</small>';
+        hist.appendChild(empty);
+      }
+    }
+  }
+
+  addBtn && addBtn.addEventListener('click', ()=>{
+    const v = Number((amountEl?.value||'').trim());
+    const c = (catEl?.value||'Misc').trim();
+    if(!v || v<=0){ toast('Enter a valid amount','error'); return; }
+    const arr = normalize(load());
+    arr.push({ id: uid(), amount: v, category: c, date: new Date().toISOString() });
+    save(arr);
+    amountEl.value='';
+    toast('Added: '+money(v)+' ('+c+')');
+    render();
+  });
+
+  // Re-render on storage or resize (in case styles shift)
+  window.addEventListener('storage', (e)=>{ if(e && (e.key===KEY || e.key===LIMIT_KEY)) render(); });
+  window.addEventListener('load', render);
+  window.addEventListener('resize', ()=>{ /* no-op but keeps layout responsive */ });
+
+  // Initial render if HTML already present
+  if(document.getElementById('weekly-enhanced')) render();
+})();
+</script>
+
+
+<script>
+(function(){
+  const KEY='mr_money_weekly_v1';
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function getWeekBounds(){
+    const now = new Date();
+    const start = new Date(now);
+    const day=(start.getDay()+6)%7; start.setDate(now.getDate()-day); start.setHours(0,0,0,0);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start,end};
+  }
+  function inThisWeek(d){ const {start,end}=getWeekBounds(); return d>=start && d<end; }
+  function weekEntries(){
+    return load().filter(it=> inThisWeek(new Date(it.date)));
+  }
+  function renderCharts(){
+    const entries = weekEntries();
+    // Categories pie
+    const byCat={};
+    entries.forEach(it=>{ const c=it.category||'Misc'; byCat[c]=(byCat[c]||0)+Number(it.amount||0); });
+    const ctx=document.getElementById('wsCatChart'); if(ctx){
+      if(window.wsCatChart) window.wsCatChart.destroy();
+      window.wsCatChart=new Chart(ctx,{
+        type:'pie',
+        data:{ labels:Object.keys(byCat), datasets:[{ data:Object.values(byCat) }] },
+        options:{ plugins:{ legend:{ position:'bottom' } } }
+      });
+    }
+    // Daily breakdown table
+    const tb=document.querySelector('#wsDaily tbody'); if(tb){
+      tb.innerHTML='';
+      const {start}=getWeekBounds();
+      for(let i=0;i<7;i++){
+        const d=new Date(start); d.setDate(start.getDate()+i);
+        const label=d.toLocaleDateString(undefined,{weekday:'short'});
+        const total=entries.filter(it=>{
+          const dd=new Date(it.date);
+          return dd.getFullYear()===d.getFullYear() && dd.getMonth()===d.getMonth() && dd.getDate()===d.getDate();
+        }).reduce((s,x)=>s+Number(x.amount||0),0);
+        const tr=document.createElement('tr');
+        tr.innerHTML='<td>'+label+'</td><td style="text-align:right">'+(total? total.toFixed(2):'—')+'</td>';
+        tb.appendChild(tr);
+      }
+    }
+  }
+  window.addEventListener('storage', (e)=>{ if(e.key===KEY) renderCharts(); });
+  window.addEventListener('load', renderCharts);
+})(); 
+</script>
+
+
+<script>
+(function(){
+  function load(){ try{ return JSON.parse(localStorage.getItem('mr_money_weekly_v1')||'[]'); }catch(e){ return []; } }
+  function getWeekBounds(){
+    const now = new Date();
+    const start = new Date(now);
+    const day = (start.getDay()+6)%7;
+    start.setDate(now.getDate()-day); start.setHours(0,0,0,0);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start, end};
+  }
+  function weekEntries(){
+    const {start, end} = getWeekBounds();
+    return (load()||[]).filter(it=>{ const d=new Date(it.date); return d>=start && d<end; });
+  }
+
+  // COLORS (light/dark neutral safe)
+  const COLORS = ['#34d399','#60a5fa','#f472b6','#f59e0b','#a78bfa','#f87171','#22d3ee','#93c5fd'];
+
+  function drawPie(canvas, legendEl, data){
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+    const total = data.reduce((s,x)=>s+x.v,0) || 1;
+    let angle = -Math.PI/2;
+    data.forEach((d,i)=>{
+      const slice = (d.v/total)*Math.PI*2;
+      ctx.beginPath();
+      ctx.moveTo(W/2, H/2);
+      ctx.arc(W/2, H/2, Math.min(W,H)/2 - 10, angle, angle+slice);
+      ctx.closePath();
+      ctx.fillStyle = COLORS[i%COLORS.length];
+      ctx.fill();
+      angle += slice;
+    });
+    if(legendEl){
+      legendEl.innerHTML = data.map((d,i)=>`<span><span class="dot" style="background:${COLORS[i%COLORS.length]}"></span>${d.k}: ${d.v.toFixed(2)}</span>`).join(' ');
+    }
+  }
+
+  function drawSpark(canvas, arr){
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0,0,W,H);
+    const max = Math.max(...arr, 10);
+    const pad = 10;
+    const step = (W - pad*2) / (arr.length-1 || 1);
+    ctx.beginPath();
+    ctx.moveTo(pad, H - pad - (arr[0]/max)*(H - pad*2));
+    for(let i=1;i<arr.length;i++){
+      const x = pad + i*step;
+      const y = H - pad - (arr[i]/max)*(H - pad*2);
+      ctx.lineTo(x,y);
+    }
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#60a5fa';
+    ctx.stroke();
+    // fill
+    ctx.lineTo(W-pad, H-pad);
+    ctx.lineTo(pad, H-pad);
+    ctx.closePath();
+    ctx.globalAlpha = .1; ctx.fillStyle = '#60a5fa'; ctx.fill(); ctx.globalAlpha = 1;
+  }
+
+  function renderCharts(){
+    const items = weekEntries();
+    // Category totals
+    const map = {};
+    items.forEach(it=>{
+      const cat = (it.category||'Misc');
+      map[cat] = (map[cat]||0) + Number(it.amount||0);
+    });
+    const pieData = Object.keys(map).map((k)=>({k, v: map[k]})).sort((a,b)=>b.v-a.v);
+    drawPie(document.getElementById('wsPie'), document.getElementById('wsPieLegend'), pieData);
+
+    // Daily totals Mon..Sun
+    const {start} = getWeekBounds();
+    const days = Array.from({length:7}, (_,i)=>{
+      const d = new Date(start); d.setDate(start.getDate()+i); d.setHours(0,0,0,0); return d;
+    });
+    const daily = days.map(d => {
+      const next = new Date(d); next.setDate(d.getDate()+1);
+      return items.filter(it=>{ const t=new Date(it.date); return t>=d && t<next; })
+                  .reduce((s,x)=> s + Number(x.amount||0), 0);
+    });
+    drawSpark(document.getElementById('wsSpark'), daily);
+
+    // Table
+    const tbl = document.getElementById('wsTable');
+    if(tbl){
+      const names = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+      tbl.innerHTML = '<tr><th>Day</th>'+names.map(n=>`<th>${n}</th>`).join('')+'</tr>';
+      const cur = localStorage.getItem('mr_money_currency_v1') || 'USD';
+      function money(n){ try{ return Number(n||0).toLocaleString(undefined,{style:'currency',currency:cur}); }catch{return '$'+Number(n||0).toFixed(2);} }
+      tbl.innerHTML += '<tr><td>Total</td>'+daily.map(v=>`<td>${money(v)}</td>`).join('')+'</tr>';
+    }
+  }
+
+  window.addEventListener('storage', (e)=>{ if(e && e.key==='mr_money_weekly_v1') renderCharts(); });
+  window.addEventListener('load', renderCharts);
+})();
+</script>
+
+
+<script>
+(function(){
+  const KEY='mr_money_weekly_v1';
+  const LIMIT_KEY='mr_money_weekly_limit_v1';
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function limit(){ return Number(localStorage.getItem(LIMIT_KEY)||200); }
+  function getWeekBounds(){
+    const now = new Date();
+    const start = new Date(now);
+    const d=(start.getDay()+6)%7; start.setDate(now.getDate()-d); start.setHours(0,0,0,0);
+    const end = new Date(start); end.setDate(start.getDate()+7);
+    return {start,end};
+  }
+  function dayTotals(){
+    const {start} = getWeekBounds();
+    const days = [...Array(7)].map((_,i)=>{
+      const s=new Date(start); s.setDate(start.getDate()+i);
+      const e=new Date(s); e.setDate(s.getDate()+1);
+      const list=(load()||[]).filter(it=>{ const t=new Date(it.date); return t>=s && t<e; });
+      const sum=list.reduce((a,x)=>a+Number(x.amount||0),0);
+      return {date:s, total:sum, logged:list.length>0};
+    });
+    return days;
+  }
+  function render(){
+    const grid=document.getElementById('dsGrid'); if(!grid) return;
+    grid.innerHTML='';
+    const days=dayTotals();
+    const L=limit();
+    // running totals for on-target pace
+    let run=0;
+    days.forEach((d,idx)=>{
+      run += d.total;
+      const paceOk = run <= (L/7)*(idx+1) + 1e-6; // small epsilon
+      const zero = d.total===0;
+      const cell=document.createElement('div'); cell.className='ds-cell';
+      const dayName=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][idx];
+      const dayEl=document.createElement('div'); dayEl.className='ds-day'; dayEl.textContent = dayName;
+      const icons=document.createElement('div'); icons.className='ds-icons';
+      // 3 good ones only: logged, on-target, zero
+      const star = document.createElement('span'); star.textContent='⭐'; if(!d.logged) star.classList.add('ds-fade');
+      const check = document.createElement('span'); check.textContent='✅'; if(!paceOk) check.classList.add('ds-fade');
+      const gem = document.createElement('span'); gem.textContent='💎'; if(!zero) gem.classList.add('ds-fade');
+      icons.appendChild(star); icons.appendChild(check); icons.appendChild(gem);
+      cell.appendChild(dayEl); cell.appendChild(icons);
+      grid.appendChild(cell);
+    });
+  }
+  window.addEventListener('load', render);
+  window.addEventListener('storage', (e)=>{ if(e && (e.key===KEY||e.key===LIMIT_KEY)) render(); });
+})();
+</script>
+
+</body>
+</html>
